@@ -1,16 +1,6 @@
 # budget
 
-A new Flutter project.
+tired of all the bloated subsciption based apps that are supposed to help you keep track of your subscriptions.
+a little ironic, no?
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+barebones tracking app, will never be sold for money.
