@@ -1,3 +1,5 @@
+import 'package:budget/pages/add_page/add_page.dart';
+import 'package:budget/pages/settings_page/settings_page.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -37,6 +39,18 @@ class MyApp extends StatelessWidget {
           builder: (context, state) {
             return const HomePage();
           },
+        ),
+        GoRoute(
+          path: "/add_page",
+          builder: (context, state) {
+            return const AddPage();
+          },
+        ),
+        GoRoute(
+          path: "/settings_page",
+          builder: (context, state) {
+            return const SettingsPage();
+          }
         ),
       ]),
     );

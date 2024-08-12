@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -20,7 +21,7 @@ class _HomePageState extends State<HomePage> {
           IconButton(
             icon: const Icon(Icons.add), 
             onPressed: () {
-              log("hell0");
+              GoRouter.of(context).push("/add_page");
             },
           ),
         ],
@@ -39,7 +40,7 @@ class _HomePageState extends State<HomePage> {
               leading: const Icon(Icons.settings),
               title: const Text("Settings"),
               onTap: () {
-                // Navigator.pop(context);
+                GoRouter.of(context).push("/settings_page");
               },
             ),
           ],
