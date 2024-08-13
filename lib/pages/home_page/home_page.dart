@@ -1,5 +1,7 @@
 import 'dart:developer';
 
+import 'package:budget/pages/home_page/custom_bottom_navigation_bar.dart';
+import 'package:budget/pages/home_page/custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 
@@ -26,47 +28,11 @@ class _HomePageState extends State<HomePage> {
           ),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blueGrey,
-              ),
-              child: Text("budget"),
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text("Settings"),
-              onTap: () {
-                GoRouter.of(context).push("/settings_page");
-              },
-            ),
-          ],
-        ),
-      ),
+      drawer: const CustomDrawer(),
       body: const Center(
         child: Text("budget"),
       ),
-      bottomNavigationBar: BottomNavigationBar(
-        type: BottomNavigationBarType.fixed,
-        
-        items: const [
-          BottomNavigationBarItem(
-            icon: Icon(Icons.wallet),
-            label: "Subscriptions",
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.upcoming), 
-            label: "Upcoming"
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.query_stats),
-            label: "Statistics",
-          ),
-        ],
-      ),
+      bottomNavigationBar: const CustomBottomNavigationBar(),
     );
   }
 }
