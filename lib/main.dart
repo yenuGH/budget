@@ -1,9 +1,6 @@
-import 'package:budget/pages/add_page/add_page.dart';
-import 'package:budget/pages/settings_page/settings_page.dart';
 import 'package:flutter/material.dart';
-import 'package:go_router/go_router.dart';
 
-import 'pages/home_page/home_page.dart';
+import './routes/routes.dart';
 
 void main() {
   runApp(const MyApp());
@@ -27,32 +24,7 @@ class MyApp extends StatelessWidget {
         ),
         useMaterial3: true,
       ),
-      routerConfig: GoRouter(routes: [
-        GoRoute(
-          path: "/",
-          builder: (context, state) {
-            return tokenExists == true? const HomePage() : const Placeholder();
-          },
-        ),
-        GoRoute(
-          path: "/home_page",
-          builder: (context, state) {
-            return const HomePage();
-          },
-        ),
-        GoRoute(
-          path: "/add_page",
-          builder: (context, state) {
-            return const AddPage();
-          },
-        ),
-        GoRoute(
-          path: "/settings_page",
-          builder: (context, state) {
-            return const SettingsPage();
-          }
-        ),
-      ]),
+      routerConfig: goRouter,
     );
   }
 }

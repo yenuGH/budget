@@ -12,11 +12,23 @@ class _AddPageState extends State<AddPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Add"),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
       ),
-      body: const Center(
-        child: Text("Add"),
+      body: Column(
+        crossAxisAlignment: CrossAxisAlignment.center,
+        children: <Widget>[
+          TextFormField(
+            decoration: const InputDecoration(
+              hintText: "Name of the subscription",
+            ),
+            validator: (String? value) {
+              if (value == null || value.isEmpty) {
+                return 'Please enter some text';
+              }
+              return null;
+            },
+          ),
+        ],
       ),
     );
   }
