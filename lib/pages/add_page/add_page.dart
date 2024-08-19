@@ -1,6 +1,8 @@
+import 'package:budget/pages/add_page/cost_input_field.dart';
 import 'package:flutter/material.dart';
 
 import '../../styles/constants.dart';
+import './short_text_form_field.dart';
 
 class AddPage extends StatefulWidget {
   const AddPage({super.key});
@@ -18,26 +20,18 @@ class _AddPageState extends State<AddPage> {
       ),
       body: Container(
         padding: PaddingStyles.pageContainerPadding,
-        child: Column(
+        child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const Text(
+            Text(
               "Add a new subscription",
               style: TextStyles.title,
             ),
 
-            TextFormField(
-              // subscription name
-              decoration: const InputDecoration(
-                hintText: "Name of the subscription",
-              ),
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter some text';
-                }
-                return null;
-              },
-            ),
+            ShortTextFormField(hintText: "Name of the subscription"),
+
+            CostInputField(),
+
           ],
         ),
       ),

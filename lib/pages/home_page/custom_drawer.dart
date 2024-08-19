@@ -12,11 +12,11 @@ class CustomDrawer extends StatelessWidget {
       child: ListView(
         padding: EdgeInsets.zero,
         children: [
-          const DrawerHeader(
+          DrawerHeader(
             decoration: BoxDecoration(
-              color: Colors.blueGrey,
+              color: Theme.of(context).colorScheme.inversePrimary,
             ),
-            child: Text("budget"),
+            child: const Text("budget"),
           ),
           ListTile(
             leading: const Icon(Icons.settings),
