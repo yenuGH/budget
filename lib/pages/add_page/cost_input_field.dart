@@ -40,13 +40,17 @@ class _CostInputFieldState extends State<CostInputField> {
               // width: 300, // Set a specific width for the TextFormField
               child: TextFormField(
                 controller: _controller,
+                
                 keyboardType:
                     const TextInputType.numberWithOptions(decimal: true),
+
                 textAlign: TextAlign.center,
+
                 style: const TextStyle(
                   fontSize: 42,
                   fontWeight: FontWeight.bold,
                 ),
+
                 decoration: const InputDecoration(
                   border: InputBorder.none,
                   contentPadding: PaddingStyles.inputDecorationPadding,
@@ -56,10 +60,12 @@ class _CostInputFieldState extends State<CostInputField> {
                       fontWeight: FontWeight.bold,
                       color: ColorStyles.inputDecorationHintColor),
                 ),
+
                 inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*')),
                   DecimalTextInputFormatter(decimalRange: 2),
                 ],
+
                 validator: (String? value) {
                   if (value == null || value.isEmpty) {
                     return 'Please enter some text';

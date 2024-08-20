@@ -32,7 +32,7 @@ class _HomePageState extends State<HomePage> {
       body: const Center(
         child: Text("budget"),
       ),
-      bottomNavigationBar: const CustomBottomNavigationBar(),
+      // bottomNavigationBar: const CustomBottomNavigationBar(),
     );
   }
 }

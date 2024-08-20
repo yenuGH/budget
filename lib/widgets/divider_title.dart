@@ -11,31 +11,34 @@ class DividerTitle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.center,
-    
-      children: [
-        Text(
-          title,
-          style: TextStyles.title,
-        ),
-    
-        const SizedBox(
-          width: 10,
-        ),
-    
-        Expanded(
-          child: Container(
-            height: 2,
-            width: 30,
-          
-            decoration: BoxDecoration(
-              color: Theme.of(context).colorScheme.secondary,
-              borderRadius: RoundingStyles.containerRounding,
+    return Container(
+      margin: const EdgeInsets.only(top: 20, bottom: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+      
+        children: [
+          Text(
+            title,
+            style: TextStyles.title,
+          ),
+      
+          const SizedBox(
+            width: 10,
+          ),
+      
+          Expanded(
+            child: Container(
+              height: 2,
+              width: 30,
+            
+              decoration: BoxDecoration(
+                color: Theme.of(context).colorScheme.secondary,
+                borderRadius: RoundingStyles.containerRounding,
+              ),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }

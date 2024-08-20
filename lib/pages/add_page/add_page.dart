@@ -1,8 +1,11 @@
-import 'package:budget/pages/add_page/cost_input_field.dart';
-import 'package:budget/widgets/divider_title.dart';
 import 'package:flutter/material.dart';
 
 import '../../styles/constants.dart';
+
+import 'package:budget/pages/add_page/billing_cycle_field.dart';
+import 'package:budget/pages/add_page/cost_input_field.dart';
+
+import 'package:budget/widgets/divider_title.dart';
 import './short_text_form_field.dart';
 
 class AddPage extends StatefulWidget {
@@ -20,9 +23,9 @@ class _AddPageState extends State<AddPage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text("Add Subscription"),
       ),
-      body: Container(
+      body: const SingleChildScrollView(
         padding: PaddingStyles.pageContainerPadding,
-        child: const Column(
+        child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             DividerTitle(title: "Details"),
@@ -31,7 +34,11 @@ class _AddPageState extends State<AddPage> {
 
             CostInputField(),
 
-            DividerTitle(title: "Payment"),
+            DividerTitle(title: "Billing"),
+
+            ShortTextFormField(inputTitle: "Payment Method", hintText: "ex: Credit Card"),
+
+            BillingCycleField(),
           ],
         ),
       ),
