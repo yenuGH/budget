@@ -11,56 +11,66 @@ class CostInputField extends StatefulWidget {
 }
 
 class _CostInputFieldState extends State<CostInputField> {
-  final TextEditingController _controller = TextEditingController(text: "0.00");
+  final TextEditingController _controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-      borderRadius: RoundingStyles.containerRounding,
-      child: Container(
-        color: ColorStyles.inputDecorationColor,
-        margin: PaddingStyles.widgetPadding,
-        height: 200,
-        width: double.infinity, // Ensure the container takes full width
-        child: Center(
-          child: SizedBox(
-            // width: 300, // Set a specific width for the TextFormField
-            child: TextFormField(
-              controller: _controller,
-              keyboardType: const TextInputType.numberWithOptions(decimal: true),
-              textAlign: TextAlign.center,
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
 
-              style: const TextStyle(
-                fontSize: 42,
-                fontWeight: FontWeight.bold,
-              ),
+      children: <Widget>[
+        /* const Text(
+          "Cost",
+          style: TextStyles.body,
+        ), */
 
-              decoration: const InputDecoration(
-                border: InputBorder.none,
-                contentPadding: PaddingStyles.inputDecorationPadding,
-                hintText: "0.00",
-                hintStyle: TextStyle(
+        Container(
+          margin: PaddingStyles.widgetPadding,
+
+          decoration: BoxDecoration(
+            borderRadius: RoundingStyles.containerRounding,
+            color: ColorStyles.inputDecorationColor,
+          ),
+
+          height: 200,
+          width: double.infinity, // Ensure the container takes full width
+
+          child: Center(
+            child: SizedBox(
+              // width: 300, // Set a specific width for the TextFormField
+              child: TextFormField(
+                controller: _controller,
+                keyboardType:
+                    const TextInputType.numberWithOptions(decimal: true),
+                textAlign: TextAlign.center,
+                style: const TextStyle(
                   fontSize: 42,
                   fontWeight: FontWeight.bold,
-                  color: Color.fromARGB(255, 51, 51, 51),
                 ),
+                decoration: const InputDecoration(
+                  border: InputBorder.none,
+                  contentPadding: PaddingStyles.inputDecorationPadding,
+                  hintText: "0.00",
+                  hintStyle: TextStyle(
+                      fontSize: 42,
+                      fontWeight: FontWeight.bold,
+                      color: ColorStyles.inputDecorationHintColor),
+                ),
+                inputFormatters: <TextInputFormatter>[
+                  FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*')),
+                  DecimalTextInputFormatter(decimalRange: 2),
+                ],
+                validator: (String? value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
               ),
-
-              inputFormatters: <TextInputFormatter>[
-                FilteringTextInputFormatter.allow(RegExp(r'^\d*\.?\d*')),
-                DecimalTextInputFormatter(decimalRange: 2),
-              ],
-
-              validator: (String? value) {
-                if (value == null || value.isEmpty) {
-                  return 'Please enter some text';
-                }
-                return null;
-              },
             ),
           ),
         ),
-      ),
+      ],
     );
   }
 }

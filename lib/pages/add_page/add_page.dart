@@ -1,4 +1,5 @@
 import 'package:budget/pages/add_page/cost_input_field.dart';
+import 'package:budget/widgets/divider_title.dart';
 import 'package:flutter/material.dart';
 
 import '../../styles/constants.dart';
@@ -17,21 +18,20 @@ class _AddPageState extends State<AddPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        title: const Text("Add Subscription"),
       ),
       body: Container(
         padding: PaddingStyles.pageContainerPadding,
         child: const Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(
-              "Add a new subscription",
-              style: TextStyles.title,
-            ),
+            DividerTitle(title: "Details"),
 
-            ShortTextFormField(hintText: "Name of the subscription"),
+            ShortTextFormField(inputTitle: "Subscription Name", hintText: "ex: Amazon Prime"),
 
             CostInputField(),
 
+            DividerTitle(title: "Payment"),
           ],
         ),
       ),
