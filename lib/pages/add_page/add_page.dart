@@ -1,3 +1,4 @@
+import 'package:budget/pages/add_page/date_picker_field.dart';
 import 'package:flutter/material.dart';
 
 import '../../styles/constants.dart';
@@ -39,6 +40,8 @@ class _AddPageState extends State<AddPage> {
             ShortTextFormField(inputTitle: "Payment Method", hintText: "ex: Credit Card"),
 
             BillingCycleField(),
+
+            DatePickerField(),
           ],
         ),
       ),

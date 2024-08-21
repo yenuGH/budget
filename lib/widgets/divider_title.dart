@@ -14,7 +14,7 @@ class DividerTitle extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.only(top: 20, bottom: 20),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.start,
       
         children: [
           Text(
@@ -26,7 +26,7 @@ class DividerTitle extends StatelessWidget {
             width: 10,
           ),
       
-          Expanded(
+          /* Expanded(
             child: Container(
               height: 2,
               width: 30,
@@ -36,7 +36,7 @@ class DividerTitle extends StatelessWidget {
                 borderRadius: RoundingStyles.containerRounding,
               ),
             ),
-          ),
+          ), */
         ],
       ),
     );
