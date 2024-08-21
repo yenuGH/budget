@@ -1,3 +1,4 @@
+import 'package:budget/pages/add_page/color_picker_field.dart';
 import 'package:budget/pages/add_page/date_picker_field.dart';
 import 'package:flutter/material.dart';
 
@@ -42,6 +43,10 @@ class _AddPageState extends State<AddPage> {
             BillingCycleField(),
 
             DatePickerField(),
+
+            DividerTitle(title: "Extra (Optional)"),
+
+            ColorPickerField(),
           ],
         ),
       ),
