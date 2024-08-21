@@ -65,6 +65,7 @@ class _BillingCycleFieldState extends State<BillingCycleField> {
 
                 inputFormatters: <TextInputFormatter>[
                   FilteringTextInputFormatter.digitsOnly,
+                  PositiveIntInputFormatter(),
                 ],
               ),
             ),
@@ -107,5 +108,20 @@ class _BillingCycleFieldState extends State<BillingCycleField> {
         ),
       ],
     );
+  }
+}
+
+// Custom TextInputFormatter to allow only positive integers
+class PositiveIntInputFormatter extends TextInputFormatter {
+  @override
+  TextEditingValue formatEditUpdate(TextEditingValue oldValue, TextEditingValue newValue) {
+    if (newValue.text.isEmpty) {
+      return newValue;
+    }
+    final int? value = int.tryParse(newValue.text);
+    if (value == null || value <= 0) {
+      return oldValue;
+    }
+    return newValue;
   }
 }
