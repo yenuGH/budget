@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/constants.dart';
+import '../../../styles/constants.dart';
 
 class SubmitButton extends StatelessWidget {
   const SubmitButton({super.key});

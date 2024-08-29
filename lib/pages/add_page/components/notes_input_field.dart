@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/constants.dart';
+import '../../../styles/constants.dart';
 
 class NotesInputField extends StatefulWidget {
   const NotesInputField({super.key});

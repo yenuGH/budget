@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../styles/constants.dart';
+import '../../../styles/constants.dart';
 
 class ColorPickerField extends StatefulWidget {
   const ColorPickerField({super.key});
