@@ -1,7 +1,7 @@
 import 'dart:developer';
 
-import 'package:budget/pages/home_page/custom_bottom_navigation_bar.dart';
-import 'package:budget/pages/home_page/custom_drawer.dart';
+import 'package:budget/pages/home_page/components/custom_bottom_navigation_bar.dart';
+import 'package:budget/pages/home_page/components/custom_drawer.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 

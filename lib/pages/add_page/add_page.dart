@@ -20,6 +20,14 @@ class AddPage extends StatefulWidget {
 }
 
 class _AddPageState extends State<AddPage> {
+  TextEditingController subscriptionNameController = TextEditingController();
+  TextEditingController costController = TextEditingController();
+  TextEditingController paymentMethodController = TextEditingController();
+  int billingCycle = 0; // the default interval for the cycle will be set to 0 days
+  DateTime firstPaymentDate = DateTime.now(); // the default date will be set to the user's current date
+  String color = "#FFFFFF"; // the default color will be set to white
+  String notes = "";
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,32 +35,34 @@ class _AddPageState extends State<AddPage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: const Text("Add Subscription"),
       ),
-      body: const SingleChildScrollView(
+      body: SingleChildScrollView(
         padding: PaddingStyles.pageContainerPadding,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            DividerTitle(title: "Details"),
+            const DividerTitle(title: "Details"),
 
-            ShortTextFormField(inputTitle: "Subscription Name", hintText: "ex: Amazon Prime"),
+            ShortTextFormField(inputTitle: "Subscription Name", hintText: "ex: Amazon Prime", inputController: subscriptionNameController),
 
-            CostInputField(),
+            CostInputField(inputController: costController),
 
-            DividerTitle(title: "Billing"),
+            const DividerTitle(title: "Billing"),
 
-            ShortTextFormField(inputTitle: "Payment Method", hintText: "ex: Credit Card"),
+            ShortTextFormField(inputTitle: "Payment Method", hintText: "ex: Credit Card", inputController: paymentMethodController),
 
-            BillingCycleField(),
+            const BillingCycleField(),
 
-            DatePickerField(),
+            const DatePickerField(),
 
-            DividerTitle(title: "Extra (Optional)"),
+            const DividerTitle(title: "Extra (Optional)"),
 
-            ColorPickerField(),
+            const ColorPickerField(),
 
-            NotesInputField(),
+            const NotesInputField(),
 
-            SubmitButton(),
+            const SizedBox(height: 10),
+
+            const SubmitButton(),
           ],
         ),
       ),

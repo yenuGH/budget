@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import 'package:intl/intl.dart';
+import 'dart:developer';
+
 import '../../../styles/constants.dart';
 
 class DatePickerField extends StatefulWidget {
@@ -30,9 +33,9 @@ class _DatePickerFieldState extends State<DatePickerField> {
                 borderRadius: RoundingStyles.containerRounding,
               ),
             ),
-            onPressed: _showDatePicker,
+            onPressed: showDatePickerDialog,
             child: Text(
-              _selectedDate.toString(),
+              formatDate(_selectedDate),
               style: const TextStyle(
                 color: Colors.white,
               ),
@@ -43,7 +46,7 @@ class _DatePickerFieldState extends State<DatePickerField> {
     );
   }
 
-  void _showDatePicker() {
+  void showDatePickerDialog() {
     showDatePicker(
       context: context,
       initialDate: DateTime.now(),
@@ -57,6 +60,17 @@ class _DatePickerFieldState extends State<DatePickerField> {
           },
         );
       },
+    ).catchError(
+      (error) {
+        // this will run if the user does not select a date and clicks outside the dialog that pops up
+        log("Error: $error");
+      },
     );
+  }
+
+  String formatDate(DateTime date) {
+    // format the date to the following format: "DAY, MONTH DATE, YEAR"
+    // e.g. "Monday, August 23, 2021"
+    return DateFormat("EEEE, MMMM d - y").format(date);
   }
 }

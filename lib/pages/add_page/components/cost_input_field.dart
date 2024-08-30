@@ -4,26 +4,21 @@ import 'package:flutter/services.dart';
 import '../../../styles/constants.dart';
 
 class CostInputField extends StatefulWidget {
-  const CostInputField({super.key});
+  final TextEditingController inputController;
+
+  const CostInputField({super.key, required this.inputController});
 
   @override
   State<CostInputField> createState() => _CostInputFieldState();
 }
 
 class _CostInputFieldState extends State<CostInputField> {
-  final TextEditingController _controller = TextEditingController();
-
   @override
   Widget build(BuildContext context) {
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
 
       children: <Widget>[
-        /* const Text(
-          "Cost",
-          style: TextStyles.body,
-        ), */
-
         Container(
           margin: PaddingStyles.widgetPadding,
 
@@ -39,7 +34,7 @@ class _CostInputFieldState extends State<CostInputField> {
             child: SizedBox(
               // width: 300, // Set a specific width for the TextFormField
               child: TextFormField(
-                controller: _controller,
+                controller: widget.inputController,
                 
                 keyboardType:
                     const TextInputType.numberWithOptions(decimal: true),
